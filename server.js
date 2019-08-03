@@ -42,14 +42,13 @@ app.post('/shopping-list', jsonParser, (req, res) => {
   res.status(201).json(item);
 });
 
-app.delete('/shopping-list/:id', (req, res) => {
-  ShoppingList.delete(req.params.id);
-  console.log(`Deleted shopping list item \`${req.params.id}\``);
-  res.status(204).end();
+app.delete('/shopping-list/:id', (req, res) => {                                // To delete an item, you need to provide the URL with the item ID
+  ShoppingList.delete(req.params.id);                                           // Then, first request the item to be deleted (i.e. req.params.id) and then call Shopping.delete!
+  console.log(`Deleted shopping list item \`${req.params.id}\``);               // log this to the console...
+  res.status(204).end();                                                        // and lastly send back a blank response with a 204 status code.
 });
 
 app.post('/recipes', jsonParser, (req, res) => {
-  // ensure `name` and `budget` are in request body
   const requiredFields = ['name', 'ingredients'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];

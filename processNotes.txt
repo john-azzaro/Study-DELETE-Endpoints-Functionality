@@ -18,3 +18,22 @@ STEP 2: To start testing the POST functionality, run "nodemon server.js"
 
 STEP 3: In Postman, create a DELETE endpoint to create a new recipe
 ===================================================================
+
+        app.delete('/shopping-list/:id', (req, res) => {                                // To delete an item, you need to provide the URL with the item ID
+            ShoppingList.delete(req.params.id);                                           // Then, first request the item to be deleted (i.e. req.params.id) and then call Shopping.delete!
+            console.log(`Deleted shopping list item \`${req.params.id}\``);               // log this to the console...
+            res.status(204).end();                                                        // and lastly send back a blank response with a 204 status code.
+        });
+
+STEP 4: In Postman, send a delete request
+=========================================
+    o   To send a delete request, select delete and chnage the request url to localhost:8080/shopping-list/:id
+    o   The id is will be a property. For example:
+
+        {
+            "name": "peppers",
+            "id": "b1ff7871-336c-4c71-ba16-7ac3ff690309",        <== this is the id.
+            "budget": 4
+        }
+
+STEP 5:
