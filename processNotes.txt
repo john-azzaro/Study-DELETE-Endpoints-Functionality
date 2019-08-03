@@ -36,4 +36,9 @@ STEP 4: In Postman, send a delete request
             "budget": 4
         }
 
-STEP 5:
+    o   So in this case, the delete request will be:   localhost:8080/shopping-list/b1ff7871-336c-4c71-ba16-7ac3ff690309
+    o   If successful, you will see a "204 no content" status code.
+
+STEP 5: To check to see if you deleted your item, send another get request to localhost:8080/shopping-list
+==========================================================================================================
+    o   You should see that peppers is removed!!!
