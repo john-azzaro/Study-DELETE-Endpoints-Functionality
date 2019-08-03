@@ -9,30 +9,25 @@ const {ShoppingList, Recipes} = require('./models');
 const jsonParser = bodyParser.json();
 const app = express();
 
-// log the http layer
 app.use(morgan('common'));
 
-// we're going to add some items to ShoppingList
-// so there's some data to look at
+
 ShoppingList.create('beans', 2);
 ShoppingList.create('tomatoes', 3);
 ShoppingList.create('peppers', 4);
 
-// adding some recipes to `Recipes` so there's something
-// to retrieve.
+
 Recipes.create(
   'boiled white rice', ['1 cup white rice', '2 cups water', 'pinch of salt']);
 Recipes.create(
   'milkshake', ['2 tbsp cocoa', '2 cups vanilla ice cream', '1 cup milk']);
 
-// when the root of this router is called with GET, return
-// all current ShoppingList items
+
 app.get('/shopping-list', (req, res) => {
   res.json(ShoppingList.get());
 });
 
 app.post('/shopping-list', jsonParser, (req, res) => {
-  // ensure `name` and `budget` are in request body
   const requiredFields = ['name', 'budget'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -53,10 +48,6 @@ app.delete('/shopping-list/:id', (req, res) => {
   res.status(204).end();
 });
 
-
-// when new recipe added, ensure has required fields. if not,
-// log error and return 400 status code with hepful message.
-// if okay, add new item, and return it with a status 201.
 app.post('/recipes', jsonParser, (req, res) => {
   // ensure `name` and `budget` are in request body
   const requiredFields = ['name', 'ingredients'];
