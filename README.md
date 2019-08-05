@@ -28,7 +28,7 @@ Yes! The DELETE Endpoints Functionality Study features commentary in the server.
 <br>
 
 ## What are the key features of DELETE Endpoints Functionality Study?
-Since this study is ongoing, basic functionalities are covered first and more advanced features are added or will be added in the future.  I divided this particular study into different branches covering different aspects of basic node servers, which I list below:
+Since this study is ongoing, basic functionalities are covered first and more advanced features are added or will be added in the future:
 
 
 | **Features:**                            | **Feature Notes:**                             |
