@@ -7,7 +7,7 @@ The "DELETE Endpoints Functionality Study" demonstrates the basic functionalitie
 
 <br>
 
-In an express application, to handle a DELEET request, you call the app object (note the use of cond app = require('express') ) with the DELETE method. The DELETE method is pretty straight forward.  In the route handler, you need to provide the route AND the id of the item that you want to delete.  Then, when you request for the item to be deleted (i.e. req.params.id), you call the model and method (i.e. List.delete).
+In an express application, to handle a DELEET request, you call the app object (note the use of ```const app = require('express')``` which instantiates the app and allows us to use express) with the DELETE method. The DELETE method is pretty straight forward.  In the route handler, you need to provide the route AND the id of the item that you want to delete.  Then, when you request for the item to be deleted (i.e. req.params.id), you call the model and method (i.e. List.delete).
 
 
 ```JavaScript
